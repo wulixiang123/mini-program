@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>rem适配方案二</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    div {
+      /* width: 5rem;
+      height: 5rem; */
+
+      width: 5rem;
+      height: 5rem;
+      background: yellowgreen;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 
+
+    设计稿： 宽度750
+    设计稿元素： 
+      宽高： 375
+      背景颜色： yellowgreen
+    rem适配方案二：
+      1. 核心思想： 
+        - 将设计稿和设备屏幕宽度都等分10份
+        - 将设备上1rem = 1/10设备宽度
+        - 将设计稿上1rem = 1/10设计稿宽度
+
+    函数节流和防抖： 
+      1. 节流： 
+        - 在高频抖动的情况下，在指定的时间区间范围内只执行一次
+      2. 防抖：
+        -  在高频抖动的情况下,不会执行，等到抖动结束以后，执行一次
+   -->
+  <div>
+    测试
+  </div>
+  <script>
+    function remRest() {
+      // 1. 将设备的屏幕宽等分10份
+      let rem = document.documentElement.clientWidth / 10;
+      // 2. 将设备上1rem = 1/10设备宽度
+      document.documentElement.style.fontSize = rem + 'px';
+    }
+
+    window.addEventListener('pageshow', () => {
+      remRest()
+    })
+
+    let timeoutId;
+    window.addEventListener('resize', () => {
+      timeoutId && clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        console.log('抖动结束了，开始干活');
+        remRest()
+      }, 300)
+    })
+
+
+
+  </script>
+</body>
+
+</html>

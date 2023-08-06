@@ -1,0 +1,23 @@
+<view class="index_container">
+  <view class="title">
+    --- 单向数据绑定 ---
+  </view>
+  <view>
+  <!-- 插值语法 -->
+    {{msg}}
+  </view>
+  <!-- value 单项数据绑定 -->
+  <input type="text" value="{{msg}}"/>
+
+  <view class="title">
+    --- 双向数据绑定 ---
+  </view>
+  <view>
+    {{msg2}}
+  </view>
+  <!-- 
+      model:value 简易版的双向数据绑定
+      bindinput 是一个事件处理函数，它用于在键盘输入时触发
+   -->
+  <input type="text" model:value="{{msg2}}" bindinput="inputHandler"/>
+</view>

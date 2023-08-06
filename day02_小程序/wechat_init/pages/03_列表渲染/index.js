@@ -1,0 +1,14 @@
+Page({
+  data:{
+    personArr:[
+      {
+        name:'cury',
+        age:18
+      },
+      {
+        name:'anver',
+        age:33
+      }
+    ]
+  }
+})

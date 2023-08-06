@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 理想视口 -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=750, initial-scale=1.0">
+    <title>viewport适配</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 375px;
+            height: 100px;
+            background-color: #bfa;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+    viewport适配
+      优点： 
+        1. 所量即所得
+        2. 设计稿宽度 = 网页宽度的时候，就不需要关心设备大小了
+      缺点： 
+        会自动被挤压到小于其大小的设备屏幕中，会导致网页上所有的元素都会被挤压，如： 字体，会导致看不清楚
+   -->
+  <div>测试</div>
+</body>
+</html>

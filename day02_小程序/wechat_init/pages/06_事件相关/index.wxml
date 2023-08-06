@@ -1,0 +1,21 @@
+<view class="index_container">
+  <view class="title">
+    ---  事件相关bind + eventName ----
+  </view>
+  <view class="parent" bindtap="handleParent" data-a='{{123}}' data-navIndex='{{1}}'>
+    父元素
+    <view class="child" bindtap="handleChild">
+      子元素
+    </view>
+  </view>
+
+  <view class="title">
+    ---  事件相关catch + eventName ----
+  </view>
+  <view class="parent" catchtap="handleParent">
+    父元素
+    <view class="child" catchtap="handleChild">
+      子元素
+    </view>
+  </view>
+</view>

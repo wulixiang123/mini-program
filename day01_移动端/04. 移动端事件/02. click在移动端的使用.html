@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- 一旦实现了理想收，会导致click延迟大概在100ms左右 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>click在移动端的使用</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    div {
+      width: 50vw;
+      height: 50vw;
+      background: yellowgreen;
+    }
+  </style>
+
+</head>
+<body>
+  <div id="box">
+    测试
+  </div>
+
+  
+  <script>
+    /* 
+      click事件在移动端会延迟大概300ms左右
+    */
+    let box = document.querySelector('#box');
+    let time;
+    box.addEventListener('touchstart', () => {
+      console.log('touch start');
+      time = Date.now()
+    })
+
+    box.addEventListener('click', () => {
+      console.log('click');
+      console.log('时间差： ', Date.now() -time);
+      
+    })
+   
+    // setTimeout(() => {
+    //   console.log('----------------------------');
+    // }, 3000)
+
+
+    // for(var i = 0; i < 1000000; i++){
+    //   console.log(i);
+    // }
+
+    // let xml = new XMLHttpRequest()
+    // xml.open(url, metho)
+    // xml.onreadystatechange = function(){ // 0-4
+    //   if(xml.readystate === 4){ // 数据接收完毕
+    //     if(xml.status === 200){
+    //       console.log(xml.responseText);
+    //     }
+    //   }
+    // }
+    // xml.send()
+
+  </script>
+</body>
+</html>

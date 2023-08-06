@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PC端视口</title>
+    <style>
+        body{
+            height: 3000px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        /*
+      - 获取浏览器窗口文档显示区域的宽度，不包含滚动条
+        - document.documentElement.clientWidth
+      - 包含滚动条可视区域
+        - window.innerWidth
+      - 包含滚动条、边框的可视区域
+        - window.outerWidth
+      - 设备整个屏幕的宽度,与浏览器无关
+        - screen.width
+    */
+
+    console.log('获取浏览器窗口文档显示区域的宽度，不包含滚动条', document.documentElement.clientWidth);
+    console.log('获取浏览器窗口文档显示区域的宽度，包含滚动条可视区域', window.innerWidth);
+    console.log('获取浏览器窗口文档显示区域的宽度，包含滚动条、边框的可视区域', window.outerWidth);
+    console.log('设备整个屏幕的宽度,与浏览器无关', screen.width);
+    
+    </script>
+</body>
+</html>

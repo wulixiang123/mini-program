@@ -1,0 +1,9 @@
+<!-- 引入模板结构 -->
+<import src="/tmps/tmpA/tmpA" />
+<view class="index_container">
+  <view class="title">
+    ---  模板使用 ----
+  </view>
+
+  <template is="tmpA" data="{{person}}"/>
+</view>

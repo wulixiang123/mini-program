@@ -1,0 +1,11 @@
+<view class="index_container">
+  <view class="title">
+    --- 列表渲染 ---
+  </view>
+
+  <view class="person_list">
+    <view class="person_item" wx:for-item="personItem" wx:for="{{personArr}}" wx:key="name">
+      {{index}}---{{personItem.name}}---{{personItem.age}}
+    </view>
+  </view>
+</view>

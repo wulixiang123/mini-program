@@ -1,0 +1,19 @@
+<view class="index_container">
+  <view class="title">
+    --- 条件渲染 ---
+  </view>
+<button bindtap="NumHandler">点击减1</button>
+
+<view>
+  {{num}}
+</view>
+<view wx:if="{{num>8}}">
+  num大于8
+</view>
+<view wx:elif="{{num<=8&&num>4}}">
+  num小于等于8并且num大于4
+</view>
+<view wx:else>
+  num小于等于4
+</view>
+</view>

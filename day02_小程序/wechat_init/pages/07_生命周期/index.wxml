@@ -1,0 +1,8 @@
+<view class="index_container">
+  <view class="title">
+    --- 生命周期 ---
+  </view>
+  <view>
+    {{num}}
+  </view>
+</view>

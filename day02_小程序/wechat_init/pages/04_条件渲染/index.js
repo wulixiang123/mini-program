@@ -1,0 +1,20 @@
+Page({
+  data:{
+    personArr:[
+      {
+        name:'cury',
+        age:18
+      },
+      {
+        name:'anver',
+        age:33
+      }
+    ],
+    num:10
+  },
+  NumHandler(){
+    this.setData({
+      num:--this.data.num
+    })
+  }
+})

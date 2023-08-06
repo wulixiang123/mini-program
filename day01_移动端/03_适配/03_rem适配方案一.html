@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>rem适配方案一</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    div {
+      width: 1.875rem;
+      height: 1.875rem;
+      background: yellowgreen;
+    }
+  </style>
+</head>
+<body>
+  <!-- 
+
+    设计稿： 宽度750
+    设计稿元素： 
+      宽高： 375
+      背景颜色： yellowgreen
+    rem适配方案一： 
+      1. 核心思想： 
+        - 设置1rem == 100px
+        - 实际北京市面积大小 / 实际国土面积 === 地图上北京市面积大小 / 地图上国土面积大小
+        - 设计稿上元素的尺寸大小  / 设计稿的尺寸大小 === 设备上元素的尺寸大小 / 设备的宽度
+        - 设计稿上元素的尺寸大小 / 设备上元素的尺寸大小 === 设计稿的尺寸大小 / 设备的宽度
+   -->
+  <div>
+    测试
+  </div>
+
+  <script>
+    document.documentElement.style.fontSize = '100px';
+    document.body.style.fontSize = '16px';
+  </script>
+</body>
+</html>

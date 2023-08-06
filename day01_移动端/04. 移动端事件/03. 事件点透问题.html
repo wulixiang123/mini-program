@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>事件点透问题</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    a {
+      display: block;
+      height: 100vh;
+      width: 100vm;
+      text-align: center;
+      line-height: 80vh;
+    }
+
+    #mask {
+      position: fixed;
+      left: 0;
+      top: 0;
+      background-color: rgba(0, 0, 0, 0.2);
+      width: 100vw;
+      height: 100vh;
+      text-align: center;
+      line-height: 100vh;
+
+    }
+
+    .btn {
+      width: 200px;
+      height: 40px;
+      background-color: yellowgreen;
+      color: #fff;
+      border: none;
+      outline: none;
+    }
+  </style>
+</head>
+
+<body>
+  <a href="http://www.atguigu.com">点击去尚硅谷</a>
+  <div id="mask">
+    <button class="btn">点我关闭遮罩</button>
+  </div>
+
+  <script>
+    let btn = document.querySelector('.btn');
+    let mask = document.querySelector('#mask');
+    // btn.addEventListener('touchstart', function () {
+    //   mask.style.display = 'none';
+    // })
+
+    // 方案一： 阻止默认行为
+    // btn.addEventListener('touchstart', function (e) {
+    //   e.preventDefault();
+    //   mask.style.display = 'none';
+    // })
+
+    // 方案二： 使用click代替touchstart
+    // btn.addEventListener('click', function (e) {
+    //   mask.style.display = 'none';
+    // })
+
+    // 方案三： 
+    btn.addEventListener('touchstart', function (e) {
+      setTimeout(() => {
+        mask.style.display = 'none';
+      }, 400)
+    })
+  </script>
+</body>
+
+</html>

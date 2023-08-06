@@ -1,0 +1,11 @@
+<template name="tmpA">
+  <view class="title">
+    我是自定义模板的标题
+  </view>
+  <view class="tmp_content">
+    我是自定义模板的内容
+  </view>
+  <view>
+    {{person.name}}---{{person.age}}
+  </view>
+</template>

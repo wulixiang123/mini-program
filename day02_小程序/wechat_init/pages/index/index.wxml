@@ -1,0 +1,15 @@
+<view class="index_container">
+  <view class="title">
+    --- 生命周期 ---
+  </view>
+  <!-- 编程式 -->
+  <button bindtap="toLogs" type="primary">点击跳转页面</button>
+  <button type="default">
+  <navigator url="/pages/logs/logs">组件的方式跳转</navigator>
+  </button>
+  <navigator open-type="redirect" url="/pages/logs/logs">redirect组件的方式进行路由跳转</navigator>
+
+  <navigator open-type="redirect" url="/pages/logs/logs">此时页面卸载onUnload</navigator>
+  <navigator open-type="navigate" url="/pages/logs/logs">此时页面隐藏onHide</navigator>
+  <navigator open-type="reLaunch" url="/pages/logs/logs">此时页面卸载onUnload</navigator>
+</view>
