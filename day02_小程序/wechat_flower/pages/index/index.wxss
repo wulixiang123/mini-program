@@ -11,14 +11,14 @@
 
 /* 导航列表 */
 .nav_list { 
-  flex-wrap: wrap;
+  flex-wrap: wrap;/* 允许换行 */
 }
 
 .nav_item {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 20%;
+  flex-direction: column;/* 垂直方向排列 */
+  align-items: center;/* 子元素在侧轴上居中对齐 */
+  width: 20%;/* 宽为父元素的五分之一 */
 }
 .nav_item image {
   width: 88rpx;
@@ -31,7 +31,7 @@
   color: #333;
 }
 
-.nav_item.active image {
+.nav_item.active image {/* 选择了所有同时具有 nav_item 和 active 类名的元素内部的所有 image 元素*/
   width: 40rpx;
   height: 40rpx;
 }

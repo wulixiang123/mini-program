@@ -1,6 +1,6 @@
 <view class="index_container">
   <!-- 轮播图 -->
-  <swiper class="banners" circular	indicator-dots 	indicator-color='#fff' 	indicator-active-color='#ff744e'>
+  <swiper class="banners" autoplay interval="2000" circular	indicator-dots 	indicator-color='#fff' 	indicator-active-color='#ff744e'>
     <swiper-item>
       <image src="http://39.98.123.211:8300/images/banner-1.png" mode=""/>
     </swiper-item>
