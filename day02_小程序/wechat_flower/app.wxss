@@ -1,3 +1,16 @@
 page {
   height: 100%;
 }
+
+
+/* 横向flex布局 */
+.flex {
+  display: flex;
+}
+
+
+/* 纵向flex布局 */
+.flex_c {
+  display: flex;
+  flex-direction: column;
+}

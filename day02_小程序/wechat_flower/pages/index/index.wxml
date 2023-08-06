@@ -11,4 +11,78 @@
       <image src="http://39.98.123.211:8300/images/banner-1.png" mode=""/>
     </swiper-item>
   </swiper>
+
+  <!-- 导航列表 -->
+  <view class="nav_list flex">
+    <view class="nav_item">
+      <image
+        src="http://39.98.123.211:8300/images/cate-1.png"
+        mode="scaleToFill"
+      />
+      <text>爱的精选</text>
+    </view>
+    <view class="nav_item">
+      <image
+        src="http://39.98.123.211:8300/images/cate-1.png"
+        mode="scaleToFill"
+      />
+      <text>爱的精选</text>
+    </view>
+    <view class="nav_item">
+      <image
+        src="http://39.98.123.211:8300/images/cate-1.png"
+        mode="scaleToFill"
+      />
+      <text>爱的精选</text>
+    </view>
+    <view class="nav_item">
+      <image
+        src="http://39.98.123.211:8300/images/cate-1.png"
+        mode="scaleToFill"
+      />
+      <text>爱的精选</text>
+    </view>
+    <view class="nav_item">
+      <image
+        src="http://39.98.123.211:8300/images/cate-1.png"
+        mode="scaleToFill"
+      />
+      <text>爱的精选</text>
+    </view>
+    <view class="nav_item">
+      <image
+        src="http://39.98.123.211:8300/images/cate-1.png"
+        mode="scaleToFill"
+      />
+      <text>爱的精选</text>
+    </view>
+    <view class="nav_item">
+      <image
+        src="http://39.98.123.211:8300/images/cate-1.png"
+        mode="scaleToFill"
+      />
+      <text>爱的精选</text>
+    </view>
+    <view class="nav_item">
+      <image
+        src="http://39.98.123.211:8300/images/cate-1.png"
+        mode="scaleToFill"
+      />
+      <text>爱的精选</text>
+    </view>
+    <view class="nav_item">
+      <image
+        src="http://39.98.123.211:8300/images/cate-1.png"
+        mode="scaleToFill"
+      />
+      <text>爱的精选</text>
+    </view>
+    <view class="nav_item">
+      <image
+        src="http://39.98.123.211:8300/images/cate-1.png"
+        mode="scaleToFill"
+      />
+      <text>爱的精选</text>
+    </view>
+  </view>
 </view>
