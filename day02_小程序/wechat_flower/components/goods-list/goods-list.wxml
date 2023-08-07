@@ -1,0 +1,10 @@
+<view class="goods_list_container">
+<!-- 标题 -->
+<view class="title">{{title}}</view>
+
+<!-- 卡片列表 -->
+<view class="goods_list">
+    <goods-card wx:for="{{goodsList}}" wx:key="id" goodsDetail="{{item}}"></goods-card>
+</view>
+<view class="more">查看更多</view>
+</view>

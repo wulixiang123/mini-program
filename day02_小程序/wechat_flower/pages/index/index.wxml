@@ -8,7 +8,7 @@
 
   <!-- 导航列表 -->
   <view class="nav_list flex">
-    <view class="nav_item {{index > 4 && 'active'}}" wx:for="{{navList}}">
+    <view class="nav_item {{index > 4 && 'active'}}" wx:for="{{navList}}" wx:key="id">
       <image
         src="{{item.imageUrl}}"
         mode="scaleToFill"
@@ -23,5 +23,11 @@
       src="https://img02.hua.com/zhuanti/valentine/2023/23_valentine_mbanner_m.png?a1"
       mode="widthFix"
     />
+  </view>
+
+  <!-- 商品列表区 -->
+    <view class="goods_content">
+    <goods-list goodsList="{{loveList}}" title="猜你喜欢"> </goods-list>
+    <goods-list goodsList="{{loveList}}" title="人气推荐"> </goods-list>
   </view>
 </view>

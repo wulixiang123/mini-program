@@ -1,0 +1,22 @@
+<view class="goods_card_container">
+  <image
+    src="{{goodsDetail.imageUrl}}"
+    mode="widthFix"
+    class="goods_img"
+  />
+
+  <!-- 商品info -->
+  <view class="goods_info">
+    <view class="goods_title">{{goodsDetail.name}}</view>
+    <view class="goods_content">{{goodsDetail.floralLanguage}}</view>
+    <view class="price_remarket">
+      <view class="price">￥ {{goodsDetail.price}}</view>
+      <view class="remarket">￥ {{goodsDetail.marketPrice}}</view>
+      <image
+        src="https://img02.hua.com/m/home/img/home_buy_btn.png"
+        mode="scaleToFill"
+        class="cart_img"
+      />
+    </view>
+  </view>
+</view>
