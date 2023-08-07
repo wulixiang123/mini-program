@@ -14,14 +14,19 @@
   <view class="goods_content_container">
     <view class="goods_title">{{goodsInfo.name}}</view>
     <view class="content_list flex">
-      <view class="content_item flex_c" wx:for="{{goodsInfo.children}}" wx:key="id">
+        <navigator
+            url="/pages/goods/list/list?category2Id={{item.id}}"
+            open-type="navigate"
+            hover-class="navigator-hover"
+            class="content_item flex_c"
+            wx:for="{{goodsInfo.children}}" wx:key="id">
         <image
           src="{{item.imageUrl}}"
           mode="scaleToFill"
           class="content_img"
         />
         <text>{{item.name}}</text>
-      </view>
+        </navigator>
     </view>
   </view>
 </view>

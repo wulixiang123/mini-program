@@ -54,9 +54,6 @@ Page({
             moreStatus: 'noMore'
           })
         }
-
-
-
       }
     } catch (error) {
       console.log(error);
