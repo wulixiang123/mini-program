@@ -1,7 +1,7 @@
 // index.js
 // 在微信小程序中，Page 是一个函数，它用于注册小程序中的一个页面。
 
-const { findBanner, findCategory1, findListGoods } = require("../../utils/api")
+const { findBanner, findCategory1, findListGoods, findRecommendGoods} = require("../../utils/api")
 
 //Page 函数接受一个 Object 类型的参数，该参数指定页面的初始数据、生命周期回调、事件处理函数等
 Page({
@@ -9,6 +9,7 @@ Page({
         bannerList:[],// 轮播图
         navList:[],// 导航列表
         loveList:[],//猜你喜欢
+        recommendList:[],// 人气推荐列表
     },
     // 在微信小程序中，onLoad 是一个页面生命周期函数，
     //它表示页面加载时触发。当页面初始化时，onLoad 函数会被调用，
@@ -33,6 +34,7 @@ Page({
         this.getBanners()
         this.getNavList()
         this.getLoveList()
+        this.getRecommendList()
     },
     /* 获取主页轮播图的功能函数 */
     async getBanners(){
@@ -71,5 +73,19 @@ Page({
         } catch (error) {
             console.log(error);
         }
+    },
+    /* 获取人气推荐的功能函数 */
+   async getRecommendList(){
+    try {
+      let result = await  findRecommendGoods();
+      if(result.code === 200){
+        this.setData({
+          recommendList: result.data
+        })
+      }
+    } catch (error) {
+      console.log(error);
+      
     }
+  }
 })

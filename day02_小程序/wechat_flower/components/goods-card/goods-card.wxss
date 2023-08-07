@@ -1,62 +1,62 @@
 /* components/goods-card/goods-card.wxss */
 
 .goods_card_container {
-    width: 350rpx;
-    background: #fff;
-    padding-bottom: 1rpx;
-    margin-bottom: 20rpx;
-  }
-  
-  .goods_img {
-    width: 100%;
-    min-height: 381rpx;
-  }
-  
-  .goods_info {
-    padding: 0 10rpx;
-  }
-  
-  
-  .goods_title {
-    font-size: 28rpx;
-    font-weight: bold;
-    line-height: 60rpx;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  
-  .goods_content {
-    font-size: 26rpx;
-    line-height: 50rpx;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    height: 100rpx;
-  }
-  .price_remarket {
-    display: flex;
-  
-    /* 首个flex-item和结尾的flex-item距离边界的空白 === flex-item和flex-item距离的1/2 */
-    justify-content: space-around;
-    /* 所有区域的空白都相等，包括元素和边界的距离 */
-    /* justify-content: space-evenly; */
-  }
-  
-  .price_remarket {
-    margin: 30rpx 0;
-  }
-  
-  .price_remarket .remarket {
-    text-decoration: line-through;
-    color: #999;
-  }
-  
-  
-  .cart_img {
-    width: 48rpx;
-    height: 48rpx;
-  
-  }
+  width: 350rpx;
+  background: #fff;
+  padding-bottom: 1rpx;
+  margin-bottom: 20rpx;
+}
+
+.goods_img {
+  width: 100%;
+  min-height: 381rpx;
+}
+
+.goods_info {
+  padding: 0 10rpx;
+}
+
+
+.goods_title {
+  font-size: 28rpx;
+  font-weight: bold;
+  line-height: 60rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.goods_content {
+  font-size: 26rpx;
+  line-height: 50rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  height: 100rpx;
+}
+.price_remarket {
+  display: flex;
+
+  /* 首个flex-item和结尾的flex-item距离边界的空白 === flex-item和flex-item距离的1/2 */
+  justify-content: space-around;
+  /* 所有区域的空白都相等，包括元素和边界的距离 */
+  /* justify-content: space-evenly; */
+}
+
+.price_remarket {
+  margin: 30rpx 0;
+}
+
+.price_remarket .remarket {
+  text-decoration: line-through;
+  color: #999;
+}
+
+
+.cart_img {
+  width: 48rpx;
+  height: 48rpx;
+
+}

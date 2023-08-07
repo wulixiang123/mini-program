@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "goods-card": "/components/goods-card/goods-card",
+    "van-divider": "@vant/weapp/divider/index"
+  }
+}

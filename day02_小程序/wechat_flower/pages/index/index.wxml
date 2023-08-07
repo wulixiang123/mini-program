@@ -1,6 +1,6 @@
 <view class="index_container">
   <!-- 轮播图 -->
-  <swiper class="banners" autoplay interval="2500" circular	indicator-dots 	indicator-color='#fff' 	indicator-active-color='#ff744e'>
+  <swiper class="banners" circular	indicator-dots 	indicator-color='#fff' 	indicator-active-color='#ff744e'>
     <swiper-item wx:for="{{bannerList}}" wx:key="id">
       <image src="{{item.imageUrl}}" mode=""/>
     </swiper-item>
@@ -16,8 +16,9 @@
       <text>{{item.name}}</text>
     </view>
   </view>
+  
 
-  <!-- 活动背景图 一般用于活动展示 -->
+  <!-- 活动背景图 -->
   <view class="bg_container">
     <image
       src="https://img02.hua.com/zhuanti/valentine/2023/23_valentine_mbanner_m.png?a1"
@@ -26,8 +27,8 @@
   </view>
 
   <!-- 商品列表区 -->
-    <view class="goods_content">
+  <view class="goods_content">
     <goods-list goodsList="{{loveList}}" title="猜你喜欢"> </goods-list>
-    <goods-list goodsList="{{loveList}}" title="人气推荐"> </goods-list>
+    <goods-list goodsList="{{recommendList}}" title="人气推荐"> </goods-list>
   </view>
 </view>

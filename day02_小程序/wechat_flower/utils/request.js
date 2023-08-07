@@ -1,6 +1,9 @@
 const BASEURL = 'https://gmall-prod.atguigu.cn'
 export default(params)=>{
     return new Promise((resolve,reject)=>{
+        wx.showLoading({
+            title:'正在加载'
+        })
         wx.request({
             url: BASEURL + params.url,
             data: params.data || {},
@@ -13,7 +16,7 @@ export default(params)=>{
                 reject(e)
             },
             complete: function() {
-                // complete
+                wx.hideLoading();//关闭加载
             }
         })
     })

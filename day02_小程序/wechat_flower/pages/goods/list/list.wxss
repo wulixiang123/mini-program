@@ -1,0 +1,12 @@
+/* pages/goods/list/list.wxss */
+
+.goods_list {
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background: #eee;
+}
+
+.goods_list:after {
+  content: '';
+  width: 350rpx;
+}
