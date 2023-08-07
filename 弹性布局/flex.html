@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wrapper{
+            width: 300px;
+            display: flex;
+            flex-wrap: wrap;
+
+            /*横轴排列*/
+            flex-direction: row;
+            /* 横轴反转元素排列 */
+            /* flex-direction: row-reverse; */
+            /*横轴居中*/
+            /* justify-content: center; */
+
+            /* 纵轴排列 */
+            /* flex-direction: column; */
+            /* 纵轴反转元素排列 */
+            /* flex-direction: column-reverse; */
+            /*纵轴居中*/
+            /* align-items: center; */
+
+            /* 平均分布间距 两边为中间的1/2 */
+            /* justify-content: space-around; */
+            /* 平均分布间距,两边为0 */
+            /* justify-content: space-between; */
+            /* 平均分布间距 */
+            justify-content: space-evenly;
+        }
+        .one {
+          background: #19CAAD;
+        }
+        .two { 
+          background: #8CC7B5;
+        }
+        .three {
+          background: #D1BA74;
+        }
+        .four {
+          background: #BEE7E9;
+        }
+        .five {
+          background: #E6CEAC;
+        }
+        .six {
+          background: #ECAD9E;
+        }
+        .item {
+          text-align: center;
+          font-size: 200%;
+          color: #fff;
+          width: 100px;
+          height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="one item">One</div>
+        <div class="two item">Two</div>
+        <div class="three item">Three</div>
+        <div class="four item">Four</div>
+        <div class="five item">Five</div>
+        <div class="six item">Six</div>
+      </div>
+</body>
+</html>

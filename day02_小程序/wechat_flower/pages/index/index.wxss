@@ -35,3 +35,9 @@
   width: 40rpx;
   height: 40rpx;
 }
+
+/* 活动背景图 */
+.bg_container image{
+  width: 100%;
+  margin: 20rpx 0;
+}

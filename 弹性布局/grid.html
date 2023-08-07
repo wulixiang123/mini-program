@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wrapper{
+            display: grid;
+            /* 声明了三列，宽度分别为 200px 100px 200px */
+            /* grid-template-columns: 200px 100px 200px; */
+
+            /* 每行3个,每个元素宽/横坐标为200 */
+            /* grid-template-columns: repeat(3,200px); */
+
+            /* auto-fill自动填充 */
+            grid-template-columns: repeat(auto-fill,200px);
+
+            /* auto自动填充 */
+            /* grid-template-columns: 100px auto 100px; */
+
+            /* 第一个列宽设置为200剩下两个为 3/1 与 3/2 */
+            /* grid-template-columns: 200px 1fr 2fr; */
+
+            /* 每个元素之间的间距为20px */
+            grid-gap: 20px;
+
+            /* 第一行元素高/纵坐标100 第二行元素高为200 */
+            grid-template-rows: 100px 200px;
+
+
+        }
+        .one {
+          background: #19CAAD;
+        }
+        .two { 
+          background: #8CC7B5;
+        }
+        .three {
+          background: #D1BA74;
+        }
+        .four {
+          background: #BEE7E9;
+        }
+        .five {
+          background: #E6CEAC;
+        }
+        .six {
+          background: #ECAD9E;
+        }
+        .item {
+          text-align: center;
+          font-size: 200%;
+          color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="one item">One</div>
+        <div class="two item">Two</div>
+        <div class="three item">Three</div>
+        <div class="four item">Four</div>
+        <div class="five item">Five</div>
+        <div class="six item">Six</div>
+      </div>
+</body>
+</html>
