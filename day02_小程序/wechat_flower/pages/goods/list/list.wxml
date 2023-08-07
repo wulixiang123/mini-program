@@ -1,12 +1,18 @@
 <view class="goods_list_container">
 
-  <view class="goods_list flex">
-    <goods-card wx:for="{{goodsList}}" wx:key="id" goodsDetail="{{item}}"></goods-card>
-  </view>
+  <block wx:if="{{goodsList.length}}">
+    <view class="goods_list flex">
+      <goods-card wx:for="{{goodsList}}" wx:key="id" goodsDetail="{{item}}"></goods-card>
+    </view>
 
-  <!-- 没有更多了 -->
-  <van-divider wx:if="{{moreStatus === 'noMore'}}" contentPosition="center" customStyle="color: #1989fa; border-color: #1989fa; font-size: 18px;">
-    没有更多了
-  </van-divider>
+    <!-- 没有更多了 -->
+    <van-divider wx:if="{{moreStatus === 'noMore'}}" contentPosition="center" customStyle="color: #1989fa; border-color: #1989fa; font-size: 18px;">
+      没有更多了
+    </van-divider>
+  </block>
+  <!-- 没有商品 -->
+  <van-empty wx:else description="暂时没有商品哟">
+    <van-button round type="danger" class="bottom-button">按钮</van-button>
+  </van-empty>
 
 </view>
