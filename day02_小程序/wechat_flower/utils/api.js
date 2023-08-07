@@ -34,3 +34,10 @@ export const findGoodsList = (params) => {
         data:params
     })
 }
+
+// 获取分类页数据
+export const findCategoryTree = () => {
+    return request({
+        url: `/mall-api/index/findCategoryTree`
+    })
+}

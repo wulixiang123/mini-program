@@ -1,2 +1,27 @@
-<!--pages/category/category.wxml-->
-<text>pages/category/category.wxml</text>
+<view class="category_container flex">
+  <!-- 左侧导航 -->
+  <view class="nav_list_wrapper">
+    <scroll-view scroll-y class="nav_scroll" 	show-scrollbar="{{false}}" enhanced>
+      <view class="nav_list">
+        <view class="nav_item {{index === navIndex && 'active'}}" data-navindex="{{index}}" bindtap="handleChangeNavIndex" wx:for="{{categoryList}}" wx:key='id'>
+          {{item.name}}
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 右侧内容区 -->
+  <view class="goods_content_container">
+    <view class="goods_title">{{goodsInfo.name}}</view>
+    <view class="content_list flex">
+      <view class="content_item flex_c" wx:for="{{goodsInfo.children}}" wx:key="id">
+        <image
+          src="{{item.imageUrl}}"
+          mode="scaleToFill"
+          class="content_img"
+        />
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+</view>

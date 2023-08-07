@@ -1,1 +1,70 @@
 /* pages/category/category.wxss */
+.category_container {
+    height: 100%;
+  }
+  
+  .nav_scroll {
+    height: 100%;
+  }
+  .nav_list_wrapper {
+    width: 160rpx;
+    background: #eee;
+    height: 100%;
+    flex-shrink: 0;
+  
+    /* flex: 1; */
+    /* 设置是否能够被拉伸，默认值是0 不允许被拉伸 */
+    /* flex-grow: 1; */
+    /* 设置是否能够被压缩 默认值是1允许被压缩*/
+    /* flex-shrink: 1; */
+    /* 设置元素基于自身的大小 */
+    /* flex-basis: auto; */
+  
+  }
+  
+  .nav_list .nav_item {
+    position: relative;
+    height: 72rpx;
+    text-align: center;
+    line-height: 72rpx;
+    font-size: 26rpx;
+  }
+  .nav_item.active {
+    background: #fff;
+  }
+  .nav_item.active::before {
+    position: absolute;
+    left: 8rpx;
+    top: 15% ;
+    content: '';
+    width: 4rpx;
+    height: 70%;
+    background: red;
+  }
+  
+  
+  /* 右侧内容区样式 */
+  .goods_content_container {
+    flex-grow: 1;
+  }
+  .goods_title {
+    font-size: 30rpx;
+    line-height: 100rpx;
+  }
+  .content_list {
+    flex-wrap: wrap;
+  }
+  
+  .content_item {
+    align-items: center;
+    width: 33.333%;
+  }
+  .content_item .content_img {
+    width: 60rpx;
+    height: 60rpx;
+    margin: 20rpx 0;
+  }
+  
+  .content_item text {
+    font-size: 26rpx;
+  }
