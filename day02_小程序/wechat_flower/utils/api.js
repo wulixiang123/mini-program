@@ -41,3 +41,12 @@ export const findCategoryTree = () => {
         url: `/mall-api/index/findCategoryTree`
     })
 }
+
+// --------------------------用户信息相关----------------------------
+
+// 获取用户token信息
+export const wxLogin = (code) => {
+    return request({
+        url: `/mall-api/weixin/wxLogin/${code}`
+    })
+}
