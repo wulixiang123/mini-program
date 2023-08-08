@@ -75,9 +75,19 @@ export const updateUser = (params) => {
 
 
 // ----------------------购物车-------------------------
+
+
 // 获取购物车列表数据
 export const findCartList = () => {
     return request({
         url:`/mall-api/cart/getCartList`
+    })
+}
+
+// 修改商品的选中状态
+// export const checkCart = (params) => {
+export const checkCart = ({goodsId,isChecked}) => {
+    return request({
+        url:`/mall-api/cart/checkCart/${goodsId}/${isChecked}`
     })
 }

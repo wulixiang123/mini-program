@@ -1,4 +1,4 @@
-const { findCartList } = require("../../utils/api")
+const { findCartList, checkCart } = require("../../utils/api")
 
 // pages/cart/cart.js
 Page({
@@ -45,38 +45,23 @@ Page({
     }
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
+  // 点击商品个体checkbox的回调
+  handleChangeChecked(e){
+    console.log(e);
+    let isChecked = +e.detail
+    let goodsId = e.currentTarget.dataset.goodsid
+    this.changeShopIsChecked({goodsId,isChecked})
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
+  // 修改商品选中状态功能函数
+  async changeShopIsChecked(params){
+    try {
+      let result = await checkCart(params)
+      if(result.code === 200){
+        this.getCartList()//重新获取最新的购物车列表数据
+      }
+    } catch (error) {
+      return Promise.reject(error)
+    }
   }
 })

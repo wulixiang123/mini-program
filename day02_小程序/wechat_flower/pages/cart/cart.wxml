@@ -5,7 +5,12 @@
     <view class="cart_item flex"  wx:for="{{cartList}}" wx:key="goodsId">
       <!-- 左侧选项卡 -->
       <view class="check">
-        <van-checkbox checked-color="#FA4126" value="{{item.isChecked}}" data-goodsid="{{item.goodsId}}" bind:change="handleChangeChecked"></van-checkbox>
+        <van-checkbox 
+        checked-color="#FA4126" 
+        value="{{item.isChecked}}" 
+        data-goodsid="{{item.goodsId}}" 
+        bind:change="handleChangeChecked">
+        </van-checkbox>
       </view>
 
       <!-- 中间商品图 -->
