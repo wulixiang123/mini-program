@@ -1,4 +1,4 @@
-const { findCartList, checkCart } = require("../../utils/api")
+const { findCartList, checkCart, addToCart } = require("../../utils/api")
 
 // pages/cart/cart.js
 Page({
@@ -62,6 +62,27 @@ Page({
       }
     } catch (error) {
       return Promise.reject(error)
+    }
+  },
+  // 修改商品数量的回调
+  handleChangeShopCount(e){
+    console.log(e);
+    let newCount = e.detail
+    let oldCount = e.currentTarget.dataset.count
+    let goodsId = e.currentTarget.dataset.goodsid
+    let count = newCount - oldCount
+    // 只有count的差值不等于0的时候才发送请求
+    count !== 0 && this.changeShopCount({goodsId,count})
+  },
+  // 修改商品数量的功能函数
+  async changeShopCount(params){
+    try {
+      let result = await addToCart(params)
+      if(result.code === 200){
+        this.getCartList()
+      }
+    } catch (error) {
+      console.log(error);
     }
   }
 })

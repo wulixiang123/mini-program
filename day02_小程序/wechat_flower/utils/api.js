@@ -91,3 +91,11 @@ export const checkCart = ({goodsId,isChecked}) => {
         url:`/mall-api/cart/checkCart/${goodsId}/${isChecked}`
     })
 }
+
+// 修改商品数量 || 添加商品至购物车 && 如果是修改商品数量，coutn = 新count - 旧count
+export const addToCart = (params) => {//当有多个参数的时候 可以把形参设置为单个参数
+    return request({
+        url:`/mall-api/cart/addToCart/${params.goodsId}/${params.count}`,
+        data:params
+    })
+}
