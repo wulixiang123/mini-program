@@ -6,8 +6,25 @@
   </view>
   <view class="wrap">
     <view class="user-container section">
-      <image src="/static/images/1.png"></image>
-      <text class="ellipsis">建工高启强</text>
+      <navigator url="/pages/login/login" open-type="navigate" class="navigate"  wx:if="{{!headimgurl}}">
+        <image src="/static/images/1.png"></image>
+        <text class="ellipsis">去登陆</text>
+      </navigator>
+
+      <view wx:else class="userinfo">
+        <image src="{{headimgurl}}"></image>
+        <text class="ellipsis">{{nickname}}</text>
+        <navigator
+          url="/pages/edit/edit"
+          open-type="navigate"
+          hover-class="navigator-hover"
+          class="edit"
+        >
+        点击编辑个人信息
+        </navigator>
+      </view>
+
+
       <!-- <text class="ellipsis">请登陆</text> -->
     </view>
     <view class="order section">

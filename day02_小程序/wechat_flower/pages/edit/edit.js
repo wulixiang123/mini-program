@@ -31,11 +31,11 @@ Page({
   },
   // 点击忽略设置按钮的回调
   handleCancel(){
-    // wx.navigateBack(// 回退到上一级页面
+    wx.navigateBack(// 回退到上一级页面
     //   {
     //   delta: 1, // 回退前 delta(默认为1) 页面
     // }
-    // )
+    )
   },
   // 点击提交设置按钮的回调
   handleSubmit(){
@@ -61,6 +61,7 @@ Page({
         wx.showToast({
           title:'更新成功'
         })
+        wx.setStorageSync('userInfo', userInfo)// 同步更新本地存储的用户信息数据
         wx.navigateBack()// 跳转页面， 个人中心页
       }
     } catch (error) {
