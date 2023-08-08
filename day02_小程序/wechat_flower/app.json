@@ -1,11 +1,13 @@
 {
+  "entryPagePath":"pages/login/login",
   "pages": [
     "pages/index/index",
     "pages/category/category",
     "pages/cart/cart",
     "pages/personal/personal",
     "pages/goods/detail/detail",
-    "pages/goods/list/list"
+    "pages/goods/list/list",
+    "pages/login/login"
   ],
   "window": {
     "backgroundTextStyle": "light",
