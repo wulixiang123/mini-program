@@ -25,7 +25,11 @@
           <view class="price">￥ {{item.price}}</view>
           <view class="buy_btn flex">
             <van-icon size="18px" color="#71797f" name="delete" class="del" />
-            <van-stepper value="{{item.count}}" data-goodsid="{{item.goodsId}}" data-count="{{item.count}}" bind:change="handleChangeShopCount"/>
+            <van-stepper 
+            value="{{item.count}}" 
+            data-goodsid="{{item.goodsId}}" 
+            data-count="{{item.count}}" 
+            bind:change="handleChangeShopCount"/>
           </view>
         </view>
       </view>
