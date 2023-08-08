@@ -24,7 +24,7 @@ Page({
 
   // 点击选择用户头像的回调
   onChooseAvatar(res){
-    console.log(res);
+    // console.log(res);
     this.setData({
       avatarUrl:res.detail.avatarUrl
     })

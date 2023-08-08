@@ -13,20 +13,18 @@ Page({
    */
   onLoad(options) {
 
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
 
   },
-
   /**
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    // 判断用户是否登录
+    if (!wx.getStorageSync('mushang_token')) {
+      wx.navigateTo({
+        url: '/pages/login/login'
+      })
+    }
   },
 
   /**
