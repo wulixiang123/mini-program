@@ -2,55 +2,31 @@
 <view class="container cart_list_container">
   <!-- 购物车列表 -->
   <view class="cart_list">
-    <view class="cart_item flex">
+    <view class="cart_item flex"  wx:for="{{cartList}}" wx:key="goodsId">
       <!-- 左侧选项卡 -->
       <view class="check">
-        <van-checkbox checked-color="#FA4126" value="true"></van-checkbox>
+        <van-checkbox checked-color="#FA4126" value="{{item.isChecked}}" data-goodsid="{{item.goodsId}}" bind:change="handleChangeChecked"></van-checkbox>
       </view>
 
       <!-- 中间商品图 -->
       <view class="shop_img">
-        <image class="img" src="http://39.98.123.211:8300/images/1-1-1.png"></image>
+        <image class="img" src="{{item.imageUrl}}"></image>
       </view>
 
       <!-- 右侧商品信息 -->
       <view class="shop_info flex">
-        <view class="title">爱的供养</view>
+        <view class="title">{{item.name}}</view>
         <view class="buy flex">
-          <view class="price">￥ 123</view>
+          <view class="price">￥ {{item.price}}</view>
           <view class="buy_btn flex">
             <van-icon size="18px" color="#71797f" name="delete" class="del" />
-            <van-stepper value="1" />
-          </view>
-        </view>
-      </view>
-    </view>
-    <view class="cart_item flex">
-      <!-- 左侧选项卡 -->
-      <view class="check">
-        <van-checkbox checked-color="#FA4126" value="true"></van-checkbox>
-      </view>
-
-      <!-- 中间商品图 -->
-      <view class="shop_img">
-        <image class="img" src="http://39.98.123.211:8300/images/1-1-1.png"></image>
-      </view>
-
-      <!-- 右侧商品信息 -->
-      <view class="shop_info flex">
-        <view class="title">爱的供养</view>
-        <view class="buy flex">
-          <view class="price">￥ 123</view>
-          <view class="buy_btn flex">
-            <van-icon size="18px" color="#71797f" name="delete" class="del" />
-            <van-stepper value="1" />
+            <van-stepper value="{{item.count}}" data-goodsid="{{item.goodsId}}" data-count="{{item.count}}" bind:change="handleChangeShopCount"/>
           </view>
         </view>
       </view>
     </view>
   </view>
-  <!-- 空的购物车 -->
-  <!-- <van-empty description="还没有添加商品，快去添加吧～" /> -->
+
   <!-- 底部结算 -->
   <view class="submit_footer flex">
     <view class="check">
@@ -71,4 +47,7 @@
       </view>
     </view>
   </view>
+
+  <!-- 空的购物车 -->
+  <!-- <van-empty description="还没有添加商品，快去添加吧～" /> -->
 </view>

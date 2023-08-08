@@ -68,3 +68,16 @@ export const updateUser = (params) => {
         data:params
     })
 }
+
+
+
+
+
+
+// ----------------------购物车-------------------------
+// 获取购物车列表数据
+export const findCartList = () => {
+    return request({
+        url:`/mall-api/cart/getCartList`
+    })
+}

@@ -1,3 +1,5 @@
+const { findCartList } = require("../../utils/api")
+
 // pages/cart/cart.js
 Page({
 
@@ -5,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    cartList:[],//购物车列表
   },
 
   /**
@@ -24,6 +26,22 @@ Page({
       wx.navigateTo({
         url: '/pages/login/login'
       })
+    }else{
+      this.getCartList()
+    }
+  },
+
+  // 获取购物车列表数据的功能函数
+  async getCartList(){
+    try {
+      let result = await findCartList()
+      if(result.code === 200){
+        this.setData({
+          cartList:result.data
+        })
+      }
+    } catch (error) {
+      console.log(error);
     }
   },
 
