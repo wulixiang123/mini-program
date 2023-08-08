@@ -50,3 +50,21 @@ export const wxLogin = (code) => {
         url: `/mall-api/weixin/wxLogin/${code}`
     })
 }
+
+
+// 根据token获取用户信息
+export const getuserInfo = () => {
+    return request({
+        url:`/mall-api/weixin/getuserInfo`
+    })
+}
+
+
+// 更新用户个人信息
+export const updateUser = (params) => {
+    return request({
+        url:`/mall-api/weixin/updateUser`,
+        method:'POST',
+        data:params
+    })
+}

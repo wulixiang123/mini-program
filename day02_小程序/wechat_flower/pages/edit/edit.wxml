@@ -1,0 +1,24 @@
+<view class="edit_container">
+    <!-- 头像区域 -->
+    <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+        <image
+            src="{{avatarUrl}}"
+            mode="scaleToFill"
+            class="avatar"
+        />
+    </button>
+
+    <!-- 用户昵称 -->
+    <form>
+        <view class="nickname_wrapper flex">
+            <label for="nickname">昵称:</label>
+            <input bind:input="handleInput" model:value="{{nickname}}" id="nickname" type="nickname" class="weui-input" placeholder="请输入昵称" />
+        </view>
+    </form>
+
+    <!-- 按钮选项 -->
+    <view class="btns flex">
+        <button type="warn" bind:tap="handleCancel">忽略设置</button>
+        <button type="primary" bind:tap="handleSubmit">提交设置</button>
+    </view>
+</view>
