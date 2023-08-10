@@ -136,3 +136,19 @@ export const findUserAddress = () => {
         url:`/mall-api/userAddress/findUserAddress`
     })
 }
+
+// 新增地址
+export const saveUserAddress = (params) => {
+    return request({
+        url:`/mall-api/userAddress/save`,
+        method:'POST',
+        data:params
+    })
+}
+
+// 删除地址
+export const deleteUserAddress = (id) => {
+    return request({
+        url:`/mall-api/userAddress/delete/${id}`
+    })
+}

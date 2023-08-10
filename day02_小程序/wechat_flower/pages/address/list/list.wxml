@@ -22,7 +22,8 @@
 				 size="22px"
 				 color="#999"
 				/>
-				<van-icon name="delete" size="22px" color="#999" />
+				<van-icon name="delete" size="22px" color="#999" 
+                bind:tap="handleDelAddress" data-id="{{item.id}}" data-name="{{item.name}}"/>
 			</view>
 		</view>
 	</view>

@@ -17,7 +17,7 @@
         placeholder="联系您的手机号"
       />
       
-      <picker mode="region" >
+      <picker mode="region" bindchange="handlePickerChange">
         <van-field
           label-class="filed-label"
           value="{{ region }}"
@@ -39,12 +39,12 @@
         </van-radio-group>
       </van-cell>
       <van-cell title="是否设置为默认地址">
-        <switch checked="{{isDefault}}" />
+        <switch checked="{{isDefault}}" bind:change="handleSwitchChange"/>
       </van-cell>
 
     </van-cell-group>
   </form>
   <view class="footer-btn">
-    <van-button block type="primary" round>保存</van-button>
+    <van-button block type="primary" round bind:tap="handleSave">保存</van-button>
   </view>
 </view>
