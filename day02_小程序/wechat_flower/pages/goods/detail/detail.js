@@ -1,66 +1,112 @@
-// pages/goods/detail/detail.js
+import { findGoodsDetail, addToCart } from "../../../utils/api";
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    goodsDetail: {}, // 商品信息对象
+    isShowActionSheet: false, // 控制祝福语弹窗显隐
+    isAddCart: true, // 区分点击的是添加购物车 || 立即购买
+    blessing: '', // 祝福语
+    goodsId: '', // 商品id
+    count: 1, // 商品数量
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    let goodsId = options.goodsId;
+    this.setData({
+      goodsId
+    })
+    this.getGoodsDetail(goodsId);
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
+  /* 获取商品信息对象的功能函数 */
+  async getGoodsDetail(goodsId){
+    try {
+      let result = await findGoodsDetail(goodsId);
+      if(result.code === 200){
+        // 更新商品信息对象
+        this.setData({
+          goodsDetail: result.data
+        })
+        // 动态修改页面窗口的title
+        wx.setNavigationBarTitle({
+          title: result.data.name
+        })
+      }
+    } catch (error) {
+      console.log(error);
+      
+    }
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
+  /* 点击加入购物车的回调 */
+  handleAddToCart(){
+    this.setData({
+      isShowActionSheet: true,
+      isAddCart: true
+    })
 
+    
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
+  /* 点击祝福语弹窗确定按钮的回调 */
+  handleConfirm(){
+    let {goodsId, count, blessing, isAddCart} = this.data;
+    if(isAddCart){
+      // 添加购物车
+      this.addToCartById({goodsId, count, blessing});
 
+    }else {
+      // 立即购买
+    }
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
+  /* 将商品添加至购物车的功能函数 */
+  async addToCartById(params){
+    try {
+      let result = await addToCart(params);
+      if(result.code === 200){
+        wx.showToast({
+          title: '添加成功'
+        })
 
+        this.setData({
+          blessing: '',
+          isShowActionSheet: false,
+          count: 1
+        })
+      }
+    } catch (error) {
+      console.log(error);
+      
+    }
+  },
+  /* 点击立即购买的回调 */
+  handleBuyNow(){
+    this.setData({
+      isShowActionSheet: true,
+      isAddCart: false
+    })
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
+  /* 点击弹窗遮罩的回调 */
+  onClose(){
+    this.setData({
+      isShowActionSheet: false
 
+    })
   },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
+  /* 修改商品数量的回调 */
+  handleChangeShopCount(e){
+    this.setData({
+      count: e.detail*1
+    })
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
-  }
 })

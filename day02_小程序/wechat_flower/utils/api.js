@@ -35,6 +35,18 @@ export const findGoodsList = (params) => {
     })
 }
 
+
+
+// 获取商品详情信息
+export const findGoodsDetail = (goodsId) => {
+    return request({
+        url:`/mall-api/goods/${goodsId}`
+    })
+}
+
+
+
+
 // 获取分类页数据
 export const findCategoryTree = () => {
     return request({

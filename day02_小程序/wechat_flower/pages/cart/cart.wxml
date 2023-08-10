@@ -22,6 +22,7 @@
       <!-- 右侧商品信息 -->
       <view class="shop_info flex">
         <view class="title">{{item.name}}</view>
+        <view class="blessing" wx:if="{{item.blessing}}">留言:{{item.blessing}}</view>
         <view class="buy flex">
           <view class="price">￥ {{item.price}}</view>
           <view class="buy_btn flex">

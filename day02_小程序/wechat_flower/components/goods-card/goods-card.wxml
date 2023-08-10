@@ -1,6 +1,6 @@
 <view class="goods_card_container">
   <navigator
-    url="/pages/goods/detail/detail"
+    url="/pages/goods/detail/detail?goodsId={{goodsDetail.id}}"
     open-type="navigate"
     hover-class="navigator-hover"
   >
