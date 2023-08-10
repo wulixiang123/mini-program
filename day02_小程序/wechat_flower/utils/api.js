@@ -99,3 +99,10 @@ export const addToCart = (params) => {//当有多个参数的时候 可以把形
         data:params
     })
 }
+
+// 删除指定的商品
+export const depShop = (goodsId) => {
+    return request({
+        url:`/mall-api/cart/delete/${goodsId}`
+    })
+}

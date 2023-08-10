@@ -1,4 +1,4 @@
-const { findCartList, checkCart, addToCart } = require("../../utils/api")
+const { findCartList, checkCart, addToCart, depShop } = require("../../utils/api")
 
 // pages/cart/cart.js
 Page({
@@ -78,6 +78,39 @@ Page({
   async changeShopCount(params){
     try {
       let result = await addToCart(params)
+      if(result.code === 200){
+        this.getCartList()
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
+  // 点击删除商品的回调
+  handleDelShop(e){
+    let {goodsid,name} = e.currentTarget.dataset
+    wx.showModal({
+      title: '确认删除吗?',
+      content: name,
+      showCancel: true,
+      cancelText: '取消',
+      cancelColor: '#000000',
+      confirmText: '确定',
+      confirmColor: '#3CC51F',
+      success: (result) => {
+        if(result.confirm){
+          this.depShopById(goodsid)
+        }
+      }
+    });
+  },
+
+
+  // 删除商品的功能函数
+  async depShopById(goodsId){
+    debugger
+    try {
+      let result = await depShop(goodsId)
       if(result.code === 200){
         this.getCartList()
       }
