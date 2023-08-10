@@ -53,11 +53,11 @@
     <view class="right flex">
       <view class="total-wrapper">
         <text>合计：</text>
-        <text class="total-price">¥ 123</text>
+        <text class="total-price">¥ {{totalPrice}}</text>
       </view>
       <view class="total-count">
         <van-button size="small" color="linear-gradient(to right, rgb(255, 96, 52), rgb(238, 10, 36))" round >
-          去结算(5)
+          去结算({{totalCount}})
         </van-button>
       </view>
     </view>

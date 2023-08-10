@@ -8,6 +8,9 @@ Page({
    */
   data: {
     cartList:[],//购物车列表
+    isAllChecked:false,//全选反选状态
+    totalPrice:0,//总价格
+    totalCount:0,//总数量
   },
 
   /**
@@ -39,6 +42,13 @@ Page({
         this.setData({
           cartList:result.data
         })
+        // 计算全选反选按钮状态
+        this.computedAllChecked()
+        // 计算总数量
+        this.computedTotalCount();
+        // 计算总价格
+        this.computedTotalPrice();
+
       }
     } catch (error) {
       console.log(error);
@@ -117,5 +127,36 @@ Page({
     } catch (error) {
       console.log(error);
     }
+  },
+
+  // 计算全选反选状态的功能函数
+  computedAllChecked(){
+    this.setData({
+      isAllChecked:this.data.cartList.length && this.data.cartList.every(item => item.isChecked)
+    })
+  },
+  // 计算总数量
+  computedTotalCount(){
+    let totalCount = this.data.cartList.reduce((pre,cur)=>{
+      return pre += cur.count * cur.isChecked
+    },0)
+    this.setData({
+      totalCount
+    })
+  },
+
+  // 计算总价格
+  computedTotalPrice(){
+    let totalPrice = this.data.cartList.reduce((pre,cur)=>{
+      return pre += cur.count * cur.price * cur.isChecked
+    },0)
+    this.setData({
+      totalPrice
+    })
+  },
+
+  // 点击去结算的回调
+  handleGoPay(){
+    if(!this.data.totalCount)return
   }
 })
