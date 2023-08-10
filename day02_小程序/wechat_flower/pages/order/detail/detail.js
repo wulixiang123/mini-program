@@ -1,3 +1,5 @@
+const { findOrderAddress, orderTrade } = require("../../../utils/api");
+
 // pages/order/detail/detail.js
 Page({
 
