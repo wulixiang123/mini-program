@@ -21,6 +21,9 @@
     "navigationBarTextStyle": "white"
   },
   "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "van-popup": "@vant/weapp/popup/index"
+  },
   "tabBar": {
     "color": "#333",
     "selectedColor": "#ff5127",
