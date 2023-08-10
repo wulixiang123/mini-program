@@ -106,3 +106,10 @@ export const depShop = (goodsId) => {
         url:`/mall-api/cart/delete/${goodsId}`
     })
 }
+
+// 修改全部商品的选中状态
+export const checkAllCart = (isChecked) => {
+    return request({
+        url:`/mall-api/cart/checkAllCart/${isChecked}`
+    })
+}

@@ -1,4 +1,4 @@
-const { findCartList, checkCart, addToCart, depShop } = require("../../utils/api")
+const { findCartList, checkCart, addToCart, depShop, checkAllCart } = require("../../utils/api")
 
 // pages/cart/cart.js
 Page({
@@ -158,5 +158,23 @@ Page({
   // 点击去结算的回调
   handleGoPay(){
     if(!this.data.totalCount)return
+  },
+
+  // 点击全选按钮的回调
+  handlerAllChecked(e){
+    let isAllChecked = e.detail?1:0
+    this.changeAllChecked(isAllChecked)
+  },
+
+  // 修改全部商品选中状态/全选非全选的功能函数
+  async changeAllChecked(isAllChecked){
+    try {
+      let result = await checkAllCart(isAllChecked)
+      if(result.code === 200){
+        this.getCartList()
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
 })

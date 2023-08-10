@@ -46,7 +46,7 @@
   <!-- 底部结算 -->
   <view class="submit_footer flex">
     <view class="check">
-       <van-checkbox checked-color="#FA4126" value="{{isAllChecked}}">
+       <van-checkbox checked-color="#FA4126" value="{{isAllChecked}}" bind:change="handlerAllChecked">
         全选
       </van-checkbox>
     </view>

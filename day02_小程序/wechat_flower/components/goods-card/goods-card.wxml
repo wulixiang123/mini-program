@@ -1,10 +1,14 @@
 <view class="goods_card_container">
-  <image
+  <navigator
+    url="/pages/goods/detail/detail"
+    open-type="navigate"
+    hover-class="navigator-hover"
+  >
+    <image
     src="{{goodsDetail.imageUrl}}"
     mode="widthFix"
     class="goods_img"
   />
-
   <!-- 商品info -->
   <view class="goods_info">
     <view class="goods_title">{{goodsDetail.name}}</view>
@@ -19,4 +23,5 @@
       />
     </view>
   </view>
+  </navigator>
 </view>
