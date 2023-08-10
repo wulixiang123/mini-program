@@ -152,3 +152,19 @@ export const deleteUserAddress = (id) => {
         url:`/mall-api/userAddress/delete/${id}`
     })
 }
+
+// 根据addressId获取对应的地址详情
+export const findAddressInfo = (id) => {
+    return request({
+        url:`/mall-api/userAddress/${id}`
+    })
+}
+
+// 修改地址信息
+export const updateAddressInfo = (params) => {
+    return request({
+        url:`/mall-api/userAddress/update`,
+        method:'POST',
+        data:params
+    })
+}

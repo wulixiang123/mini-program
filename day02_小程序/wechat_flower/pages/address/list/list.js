@@ -57,5 +57,11 @@ Page({
     } catch (error) {
       console.log(error);
     }
+  },
+  // 点击跳转至新增地址页面
+  toEdit(e){
+    wx.navigateTo({
+      url: `/pages/address/add/add?addressId=${e.currentTarget.dataset.id}`,
+    })
   }
 })
