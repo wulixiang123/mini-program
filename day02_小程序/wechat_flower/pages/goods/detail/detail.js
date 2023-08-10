@@ -69,6 +69,11 @@ Page({
           url: `/pages/order/detail/detail?goodsId=${goodsId}&blessing=${blessing}`
         })
 
+        this.setData({
+          blessing:'',
+          isShowActionSheet:false
+        })
+
       }else {
         wx.showToast({
           title: '祝福语必填',

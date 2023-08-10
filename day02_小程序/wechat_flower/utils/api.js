@@ -168,3 +168,31 @@ export const updateAddressInfo = (params) => {
         data:params
     })
 }
+
+
+// 获取订单地址
+export const findOrderAddress = () => {
+    return request({
+        url:`/mall-api/userAddress/getOrderAddress`
+    })
+}
+
+
+// ------------------------------订单相关----------------------------------
+
+
+// 获取订单详情 --- 立即购买
+export const orderBuy = (params) => {
+    return request({
+        url:`/mall-api/order/buy/${params.goodsId}`,
+        data:params
+    })
+}
+
+
+// 获取订单详情 --- 购物车去结算
+export const orderTrade = () => {
+    return request({
+        url:`/mall-api/order/trade`
+    })
+}

@@ -3,18 +3,18 @@
   <!-- 地址管理 -->
   <view class="address_card">
     <!-- 用户没有默认地址 -->
-    <!-- <navigator class="flex nav" url="/pages/address/address" hover-class="navigator-hover" open-type="navigate">
+    <navigator wx:if="{{!addressInfo}}" class="flex nav" url="/pages/address/address" hover-class="navigator-hover" open-type="navigate">
       <van-icon size="22px" name="add" />
       <view class="title_text">添加收货人地址</view>
-    </navigator> -->
+    </navigator>
     <!-- 用户有默认地址，显示默认地址 -->
     <navigator class="flex nav nav_address" url="/pages/address/address" hover-class="navigator-hover" open-type="navigate">
       <view class="address_content">
-        <view class="address_title">北京市昌平区</view>
-        <view class="address_full">宏福科技园</view>
+        <view class="address_title">{{addressInfo.fullAddress}}</view>
+        <view class="address_full">{{addressInfo.address}}</view>
         <view class="info">
-          <text class="username">高启强</text>
-          <text class="phone">13855555555</text>
+          <text class="username">{{addressInfo.name}}</text>
+          <text class="phone">{{addressInfo.phone}}</text>
         </view>
       </view>
       <van-icon color="#BBBBBB" name="arrow" size="22px" />
@@ -36,26 +36,14 @@
     <view class="goods_list">
       <view class="goods_item">
         <view class="img">
-          <image src="https://img01.hua.com/uploadpic/newpic/9012519.jpg_220x240.jpg" />
+          <image src="{{item.imageUrl}}" />
         </view>
         <view class="content">
-          <view class="goods_title">台湾鲜花，红玫瑰18朵</view>
-          <view class="goods_price">1888</view>
+          <view class="goods_title">{{item.name}}</view>
+          <view class="goods_price">{{item.price}}</view>
         </view>
         <view class="num">
-          <van-stepper value="1" />
-        </view>
-      </view>
-      <view class="goods_item">
-        <view class="img">
-          <image src="https://img01.hua.com/uploadpic/newpic/9012519.jpg_220x240.jpg" />
-        </view>
-        <view class="content">
-          <view class="goods_title">台湾鲜花，红玫瑰18朵</view>
-          <view class="goods_price">1888</view>
-        </view>
-        <view class="num">
-          <van-stepper value="1" />
+          <van-stepper value="{{item.count}}" />
         </view>
       </view>
     </view>

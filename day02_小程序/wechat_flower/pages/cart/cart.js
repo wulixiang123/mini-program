@@ -158,6 +158,9 @@ Page({
   // 点击去结算的回调
   handleGoPay(){
     if(!this.data.totalCount)return
+    wx.navigateTo({
+      url:`/pages/order/detail/detail`
+    })
   },
 
   // 点击全选按钮的回调

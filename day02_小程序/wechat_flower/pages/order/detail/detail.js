@@ -7,6 +7,9 @@ Page({
   data: {
     goodsId: '', // 商品id
     blessing: '', // 祝福语
+    addressInfo:{},//订单地址信息对象
+    cartList:[],//商品列表
+    orderInfo:{},//订单详情
   },
 
   /**
@@ -18,20 +21,66 @@ Page({
       goodsId,
       blessing
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
+    if(goodsId){
+      // 立即购买
+      this.getOrderInfoBuyNow({goodsId,blessing})
+    }else{
+      // 购物车去结算
+      this.getOrderTrade()
+    }
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow() {
+    this.getOrderAddressInfo()
+  },
 
+  // 获取订单地址信息的功能函数
+  async getOrderAddressInfo(){
+    try {
+      let result = await findOrderAddress()
+      if(result.code === 200){
+        this.setData({
+          addressInfo:result.data
+        })
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
+
+  // 获取订单详情 --- 立即购买的功能函数
+  async getOrderInfoBuyNow(params){
+    try {
+      let result = await orderBuy(params)
+      if(result.code === 200){
+        this.setData({
+          orderInfo:result.data,
+          cartList:result.data.cartList
+        })
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
+
+  // 获取订单详情 --- 购物车去结算的功能函数
+  async getOrderTrade(){
+    try {
+      let result = await orderTrade()
+      if(result.code === 200){
+        this.setData({
+          orderInfo:result.data,
+          cartList:result.data.cartVoList
+        })
+      }
+    } catch (error) {
+      console.log(error);
+    }
   },
 
   /**
