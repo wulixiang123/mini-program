@@ -125,3 +125,14 @@ export const checkAllCart = (isChecked) => {
         url:`/mall-api/cart/checkAllCart/${isChecked}`
     })
 }
+
+
+
+// -------------------------------地址相关----------------------------
+
+// 获取用户地址列表
+export const findUserAddress = () => {
+    return request({
+        url:`/mall-api/userAddress/findUserAddress`
+    })
+}

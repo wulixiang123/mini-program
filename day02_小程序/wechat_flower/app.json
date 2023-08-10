@@ -1,5 +1,5 @@
 {
-  "entryPagePath": "pages/personal/personal",
+  "entryPagePath": "pages/address/list/list",
   "pages": [
     "pages/index/index",
     "pages/category/category",
@@ -8,7 +8,11 @@
     "pages/goods/detail/detail",
     "pages/goods/list/list",
     "pages/login/login",
-    "pages/edit/edit"
+    "pages/edit/edit",
+    "pages/address/add/add",
+    "pages/address/list/list",
+    "pages/order/detail/detail",
+    "pages/order/list/list"
   ],
   "window": {
     "backgroundTextStyle": "light",

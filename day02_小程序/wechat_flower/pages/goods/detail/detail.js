@@ -63,6 +63,18 @@ Page({
 
     }else {
       // 立即购买
+      if(blessing){
+        // 跳转至订单详情页
+        wx.navigateTo({
+          url: `/pages/order/detail/detail?goodsId=${goodsId}&blessing=${blessing}`
+        })
+
+      }else {
+        wx.showToast({
+          title: '祝福语必填',
+          icon: 'error'
+        })
+      }
     }
   },
 
