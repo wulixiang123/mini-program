@@ -40,6 +40,7 @@
       </van-cell>
       <van-cell title="是否设置为默认地址">
         <switch checked="{{isDefault}}" bind:change="handleSwitchChange"/>
+        <!-- <switch checked="{{isDefault}}" bind:tap="handleSwitchChange"/> -->
       </van-cell>
 
     </van-cell-group>

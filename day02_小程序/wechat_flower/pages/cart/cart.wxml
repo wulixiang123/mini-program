@@ -59,7 +59,7 @@
       </view>
       <view class="total-count">
         <van-button size="small" color="linear-gradient(to right, rgb(255, 96, 52), rgb(238, 10, 36))" round 
-        bind:tap="handleGopay" disabled="{{!totalCount}}"
+        bind:tap="handleGoPay" disabled="{{!totalCount}}"
         >
           去结算({{totalCount}})
         </van-button>
