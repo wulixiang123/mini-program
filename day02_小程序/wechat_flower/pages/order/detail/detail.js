@@ -1,4 +1,4 @@
-const { findOrderAddress, orderTrade } = require("../../../utils/api");
+const { findOrderAddress, orderTrade, submitOrder, createJsapi, queryPayStatus } = require("../../../utils/api");
 const { formatDate } = require("../../../utils/formate");
 
 // pages/order/detail/detail.js
@@ -19,6 +19,7 @@ Page({
     isShowPopup:false,//控制popup弹层显隐
     minDate:new Date().getTime(),//最小时间
     deliveryDate:'',//期望送达日期
+    orderNo:'',//订单号
   },
 
   /**
@@ -26,12 +27,13 @@ Page({
    */
   onLoad(options) {
     let {goodsId, blessing} = options;
-    this.setData({
-      goodsId,
-      blessing
-    })
+    
     if(goodsId){
       // 立即购买
+      this.setData({
+        goodsId,
+        blessing
+      })
       this.getOrderInfoBuyNow({goodsId,blessing})
     }else{
       // 购物车去结算
@@ -125,6 +127,93 @@ Page({
       deliveryDate: formatDate(new Date(e.detail), 'YYYY-MM-DD'),
       isShowPopup: false
     })
+  },
+
+  // 点击去结算的回调
+  handleGoPay(){
+    // 前端验证参数
+    let {buyName, buyPhone, cartList, deliveryDate, userAddressId, blessing} = this.data;
+    if(
+      buyName && buyPhone && cartList && deliveryDate && userAddressId
+    ){
+      // 整理参数
+      let params = {
+        buyName, buyPhone, cartList, deliveryDate, userAddressId,
+      }
+      blessing && (params.remarks = blessing)
+      this.submitOrderByToken(params)
+    }else{
+      wx.showToast({
+        title: '订单信息不完整',
+        icon: 'error',
+      })
+    }
+  },
+
+  // 提交订单的功能函数
+  async submitOrderByToken(params){
+    debugger
+    try {
+      let result = await submitOrder(params)
+      if(result === 200){
+        // 1.更新订单号orderNo
+        this.setData({
+          order:result.data
+        })
+        debugger
+        // 2.微信下单 - 获取支付参数
+        this.getPayParams(this.data.orderNo)
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
+  // 微信下单,获取支付参数
+  async getPayParams(orderNo){
+    try {
+      let result = await createJsapi(orderNo)
+      if(result.code === 200){
+        /* 
+          result.data: 
+            nonceStr: "l5H1GM7e17u8ZW6g"
+            package: "prepay_id=wx11101935235852a901e3fddee7d5730000"
+            paySign: "B98B7AF72E23FFC542325F12CF61F86D"
+            signType: "MD5"
+            timeStamp: "1691720375319"
+        */
+
+      // 3.发起微信支付
+      wxLoginwx.requestPayment({
+        ...result.data,
+        success: function(res){
+          console.log('支付成功');
+          // 4.查询订单支付状态 - 问商家服务器端
+          this.getOrderStatus(orderNo)
+        },
+        fail: function(e) {
+          console.log(e);
+        },
+      })
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
+  // 查询订单支付状态的功能函数
+  async getOrderStatus(orderNo){
+    try {
+      let result = await queryPayStatus(orderNo)
+      if(result.code === 200){
+        //跳转页面至支付成功页面
+        wx.redirectTo({
+          url: '/pages/order/result/result',
+        })
+      }  
+    } catch (error) {
+      console.log(error);
+    }
   },
 
   /**

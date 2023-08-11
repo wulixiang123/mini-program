@@ -57,7 +57,7 @@
   <!-- 底部结算 -->
   <view class="footer flex">
     <view class="left">¥ {{orderInfo.totalAmount}}</view>
-    <viwe class="right">去结算</viwe>
+    <viwe class="right" bind:tap="handleGoPay">去结算</viwe>
   </view>
   <!-- 日期选项卡 -->
   <van-popup show="{{isShowPopup}}" bind:close="onClose" round position="bottom" custom-style="height: 50%" >

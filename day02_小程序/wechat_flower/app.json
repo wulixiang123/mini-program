@@ -12,7 +12,8 @@
     "pages/address/add/add",
     "pages/address/list/list",
     "pages/order/detail/detail",
-    "pages/order/list/list"
+    "pages/order/list/list",
+    "pages/order/result/result"
   ],
   "window": {
     "backgroundTextStyle": "light",

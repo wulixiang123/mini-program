@@ -196,3 +196,28 @@ export const orderTrade = () => {
         url:`/mall-api/order/trade`
     })
 }
+
+
+// 提交订单
+export const submitOrder = (params) => {
+    return request({
+        url:`/mall-api/order/submitOrder`,
+        method:'POST',
+        data:params
+    })
+}
+
+
+// 微信下单支付
+export const createJsapi = (orderNo) => {
+    return request({
+        url:`/mall-api/webChat/createJsapi/${orderNo}`
+    })
+}
+
+// 订单支付状态查询
+export const queryPayStatus = (orderNo) => {
+    return request({
+        url:`/mall-api/webChat/queryPayStatus/${orderNo}`
+    })
+}
