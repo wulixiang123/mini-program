@@ -1,5 +1,5 @@
 {
-  "entryPagePath": "pages/address/list/list",
+  "entryPagePath": "pages/order/detail/detail",
   "pages": [
     "pages/index/index",
     "pages/category/category",

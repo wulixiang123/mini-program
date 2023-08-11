@@ -221,3 +221,10 @@ export const queryPayStatus = (orderNo) => {
         url:`/mall-api/webChat/queryPayStatus/${orderNo}`
     })
 }
+
+// 获取订单列表
+export const orderList = (params) => {
+    return request({
+        url:`/mall-api/order/order/${params.page}/${params.limit}`
+    })
+}

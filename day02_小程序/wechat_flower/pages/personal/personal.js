@@ -5,28 +5,35 @@ Page({
    * 页面的初始数据
    */
   data: {
-    headimgurl:'',
-    nickname:""
+    headimgurl: '',
+    nickname: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow() {
-    let userInfo = wx.getStorageSync('userInfo')
+    let userInfo = wx.getStorageSync('userInfo');
     if(userInfo){
       this.setData({
-        headimgurl:userInfo.headimgurl,
-        nickname:userInfo.nickname
+        headimgurl: userInfo.headimgurl,
+        nickname: userInfo.nickname
       })
     }
+  },
+
+  /* 点击跳转至订单列表的回调 */
+  gotoOrderList(){
+    wx.navigateTo({
+      url: '/pages/order/list/list'
+    })
   },
 
   /**
