@@ -3,12 +3,12 @@
   <!-- 地址管理 -->
   <view class="address_card">
     <!-- 用户没有默认地址 -->
-    <navigator wx:if="{{!addressInfo}}" class="flex nav" url="/pages/address/address" hover-class="navigator-hover" open-type="navigate">
+    <navigator wx:if="{{!addressInfo}}" class="flex nav" url="/pages/address/list/list" hover-class="navigator-hover" open-type="navigate">
       <van-icon size="22px" name="add" />
       <view class="title_text">添加收货人地址</view>
     </navigator>
     <!-- 用户有默认地址，显示默认地址 -->
-    <navigator class="flex nav nav_address" url="/pages/address/address" hover-class="navigator-hover" open-type="navigate">
+    <navigator wx:else class="flex nav nav_address" url="/pages/address/list/list" hover-class="navigator-hover" open-type="navigate">
       <view class="address_content">
         <view class="address_title">{{addressInfo.fullAddress}}</view>
         <view class="address_full">{{addressInfo.address}}</view>
@@ -23,9 +23,9 @@
   </view>
   <!-- 订购人信息 -->
   <van-cell-group>
-    <van-field label-class="filed-label" label="订购人姓名" placeholder="订购人的姓名" value="{{addressInfo.name}}"></van-field>
-    <van-field label-class="filed-label"  label="订购人手机号" type="number" maxlength="11" placeholder="订购人的手机号" value="{{addressInfo.phone}}"/>
-    <van-cell title="期望送达日期" is-link  bindtap='handleShowPopup'/>
+    <van-field label-class="filed-label" label="订购人姓名" placeholder="订购人的姓名" model:value="{{buyName}}"></van-field>
+    <van-field label-class="filed-label"  label="订购人手机号" type="number" maxlength="11" placeholder="订购人的手机号" model:value="{{buyPhone}}"/>
+    <van-cell title="期望送达日期" is-link  bindtap='handleShowPopup' value="{{deliveryDate}}"/>
     <van-cell title="订单备注" border="{{false}}" use-label-slot>
       <!-- model:value可以实现双向数据绑定 变量名不能定义为简单的 a b c等 -->
       <textarea model:value="{{blessing}}" slot="label" class="form-textarea" placeholder="写上您的祝福语，“署名处”为选填，如未填写，虚线框区域不会打印在贺卡上（请勿填写特殊符号或表情符号）" name="textarea" />
@@ -34,7 +34,7 @@
   <!-- 商品列表信息 -->
   <view class="goods_wrapper">
     <view class="goods_list">
-      <view class="goods_item">
+      <view class="goods_item" wx:for="{{cartList}}" wx:key="goodsId">
         <view class="img">
           <image src="{{item.imageUrl}}" />
         </view>
@@ -60,7 +60,7 @@
     <viwe class="right">去结算</viwe>
   </view>
   <!-- 日期选项卡 -->
-  <van-popup round position="bottom" custom-style="height: 50%" >
-    <van-datetime-picker type="date" title='今天是个好日子'/>
+  <van-popup show="{{isShowPopup}}" bind:close="onClose" round position="bottom" custom-style="height: 50%" >
+    <van-datetime-picker type="date" title='今天是个好日子' bind:cancel="onClose" min-date="{{minDate}}" bind:confirm="handleConfirm"/>
   </van-popup>
 </view>
