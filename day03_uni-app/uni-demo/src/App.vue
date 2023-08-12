@@ -10,4 +10,15 @@ onHide(() => {
   console.log("App Hide");
 });
 </script>
-<style></style>
+<style lang="less">
+  page{
+    height: 100%;
+  }
+  .flex{
+    display: flex;
+  }
+  .flex_c{
+    display: flex;
+    flex-direction: column;
+  }
+</style>

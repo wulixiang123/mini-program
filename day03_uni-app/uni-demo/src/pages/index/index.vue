@@ -1,41 +1,76 @@
 <template>
-  <view class="content">
-    <image class="logo" src="/static/logo.png" />
-    <view class="text-area">
-      <text class="title">{{ title }}</text>
+  <view class="index_container">
+    <!-- 轮播图 -->
+    <swiper
+      indicator-dots
+      autoplay
+      circular
+      class="banners"
+    >
+      <swiper-item v-for="(item,index) in bannerList" :key="index">
+        <image
+          :src="item.src"
+          mode="scaleToFill"
+        />
+      </swiper-item>
+    </swiper>
+
+    <!-- 导航列表 -->
+    <view class="nav_list flex">
+      <view class="nav_item flex_c" v-for="(item, index) in navList" :key="index">
+        <image
+          :src="item.src"
+          mode="scaleToFill"
+        />
+        <text>{{ item.name }}</text>
+      </view>
+    </view>
+
+    <!-- 内容区 -->
+    <view class="content_container">
+      <card-list>
+        <card-item></card-item>
+        <card-item></card-item>
+        <card-item></card-item>
+        <card-item></card-item>
+      </card-list>
     </view>
   </view>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-const title = ref('Hello')
+import {ref,reactive} from 'vue'
+import {bannerCateList,hotCateList} from '@/common/mock/home'
+
+const bannerList = ref(bannerCateList)
+const navList = ref(hotCateList)
 </script>
 
-<style>
-.content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
+<style scoped lang="less">
+.index_container {
+  .banners {
+    width: 100%;
+    height: 300upx;
+    image {
+      width: 100%;
+      height: 100%;
+    }
+  }
 
-.logo {
-  height: 200rpx;
-  width: 200rpx;
-  margin-top: 200rpx;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 50rpx;
-}
-
-.text-area {
-  display: flex;
-  justify-content: center;
-}
-
-.title {
-  font-size: 36rpx;
-  color: #8f8f94;
+  .nav_list {
+    .nav_item {
+      width: 20%;
+      align-items: center;
+      image {
+        width: 72upx;
+        height: 72upx;
+        margin: 20upx 0;
+      }
+      text {
+        font-size: 26rpx;
+      }
+    }
+    
+  }
 }
 </style>
