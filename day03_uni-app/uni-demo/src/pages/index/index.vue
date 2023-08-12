@@ -28,11 +28,22 @@
 
     <!-- 内容区 -->
     <view class="content_container">
-      <card-list>
-        <card-item></card-item>
-        <card-item></card-item>
-        <card-item></card-item>
-        <card-item></card-item>
+      <card-list title="热门课程" all="全部课程">
+        <card-item 
+        :cardItem="cardItem" 
+        type="course" 
+        v-for="cardItem in courseList" 
+        :key="cardItem.id">
+      </card-item>
+      </card-list>
+
+      <card-list title="名师大咖" all="全部老师">
+        <card-item 
+        :cardItem="cardItem" 
+        type="teacher" 
+        v-for="cardItem in teacherList" 
+        :key="cardItem.id">
+      </card-item>
       </card-list>
     </view>
   </view>
@@ -40,10 +51,38 @@
 
 <script setup lang="ts">
 import {ref,reactive} from 'vue'
+import { onLoad } from '@dcloudio/uni-app'
+
 import {bannerCateList,hotCateList} from '@/common/mock/home'
+import type { QueryObject } from '@/constrint/types'
+import courseService from '@/api/course'
+
 
 const bannerList = ref(bannerCateList)
 const navList = ref(hotCateList)
+
+const teacherList = ref<QueryObject[]>([])
+const courseList = ref<Array<QueryObject>>([])
+
+// 生命周期
+onLoad(()=>{
+  getHomeData()//发送请求,获取主页数据
+})
+
+// 自定义功能函数-----获取主页数据功能函数
+async function getHomeData(){
+  try {
+    let result = await courseService.getHomeData()
+    if(result.code === 200){
+      // 更新响应式数据
+      teacherList.value = result.data.teacherList
+      courseList.value = result.data.courseList
+    }
+  } catch (error) {
+    console.log(error);
+    
+  }
+}
 </script>
 
 <style scoped lang="less">

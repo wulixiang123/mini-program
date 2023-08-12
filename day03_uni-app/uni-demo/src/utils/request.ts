@@ -4,7 +4,8 @@ import type { RequestOptions } from "@/constrint/interfaces";
 
 const BASEURL = 'https://gmall-prod.atguigu.cn/skb'
 class Service {
-    api(options:RequestOptions){
+    // private(私有属性， 只能在当前类对象中使用) protected(只能在当前类和其子类对象中使用)
+    private api(options: RequestOptions): any{
         return new Promise((resolve,reject)=>{
             uni.request({
                 url:BASEURL + options.url,
@@ -20,4 +21,22 @@ class Service {
             })
         })
     }
+    get(params:RequestOptions){
+        params.method = 'GET'
+        return this.api(params)
+    }
+    post(params:RequestOptions){
+        params.method = 'POST'
+        return this.api(params)
+    }
+    put(params:RequestOptions){
+        params.method = 'PUT'
+        return this.api(params)
+    }
+    delete(params:RequestOptions){
+        params.method = 'DELETE'
+        return this.api(params)
+    }
 }
+
+export default Service

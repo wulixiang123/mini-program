@@ -7,3 +7,9 @@ export type MethodType = "OPTIONS" | "GET" | "HEAD" | "POST" | "PUT" | "DELETE" 
 export type AnyObject = {
     [propsName:string]:any
 }
+
+// 包含id的对象
+export type QueryObject = {
+    id:string | number,
+    [propsName:string]:any
+}

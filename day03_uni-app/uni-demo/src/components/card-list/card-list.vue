@@ -2,8 +2,8 @@
     <view class="card_list_container">
       <!-- 标题 -->
       <view class="header flex">
-        <view class="title">热门课程</view>
-        <view class="all">全部课程</view>
+        <view class="title">{{ title }}</view>
+        <view class="all">{{ all }}</view>
       </view>
   
       <!-- 卡片列表 -->
@@ -13,7 +13,7 @@
     </view>
   </template>
   <script lang='ts' setup>
-    
+    const props = defineProps(['title','all'])
   </script>
   <style lang='less' scoped>
     .card_list_container{

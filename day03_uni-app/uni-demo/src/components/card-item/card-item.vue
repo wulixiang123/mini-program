@@ -1,22 +1,40 @@
 <template>
     <view class="card_item_container">
       <image
-        src="https://gdhrss-1251316161.file.myqcloud.com/public/d374bc72595af15e3e192c3b0f1c22fc172606ce1660902235381/1192x608.png"
+        :src="type === 'course'?cardItem.cover : cardItem.avatar"
         mode="widthFix"
         class="card_img"
       />
       <view class="card_content">
-        <view class="card_title">H5实战</view>
-        <view class="card_less_num">56 已学习</view>
+        <block v-if="type === 'course'">
+        <view class="card_title">{{ cardItem.title }}</view>
+        <view class="card_less_num">{{ cardItem.lessonNum }} 已学习</view>
         <view class="card_price_buy_count flex">
-          <view class="card_price">￥ 1888</view>
-          <view class="card_buy_count">10 人已购买</view>
+          <view class="card_price">￥ {{ cardItem.price }}</view>
+          <view class="card_buy_count">{{ cardItem.buyCount }} 人已购买</view>
         </view>
+        </block>
+        <block v-else>
+            <view class="card_intro">{{ cardItem.intro }}</view>
+            <view class="card_name">{{ cardItem.name }}</view>
+        </block>
       </view>
     </view>
   </template>
   <script lang='ts' setup>
-    
+  import type {QueryObject} from '@/constrint/types'
+    // const props = defineProps<{
+    //     cardItem:{
+    //         type:QueryObject;
+    //         required:true
+    //     },
+    //     type:String
+    // }>()
+
+    const props = defineProps<{
+        cardItem:QueryObject,
+            type:String
+    }>()
   </script>
   <style lang='less' scoped>
     .card_item_container {
@@ -46,6 +64,22 @@
             color: red;
             margin-right: 10rpx;
           }
+        }
+
+        .card_intro{
+            font-size: 26rpx;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+        }
+
+        .card_name{
+            font-size: 28rpx;
+            font-weight: bold;
+            color: #00cc99;
+            margin: 20rpx 0;
         }
       }
     }
