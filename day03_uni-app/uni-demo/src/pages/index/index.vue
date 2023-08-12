@@ -46,12 +46,14 @@
       </card-item>
       </card-list>
     </view>
+    <!-- 回到顶部 -->
+    <back-top></back-top>
   </view>
 </template>
 
 <script setup lang="ts">
 import {ref,reactive} from 'vue'
-import { onLoad } from '@dcloudio/uni-app'
+import { onLoad,onPageScroll } from '@dcloudio/uni-app'
 
 import {bannerCateList,hotCateList} from '@/common/mock/home'
 import type { QueryObject } from '@/constrint/types'
@@ -63,11 +65,24 @@ const navList = ref(hotCateList)
 
 const teacherList = ref<QueryObject[]>([])
 const courseList = ref<Array<QueryObject>>([])
-
+const isShow = ref(false)
 // 生命周期
 onLoad(()=>{
   getHomeData()//发送请求,获取主页数据
 })
+
+// onPageScroll((res) => {
+//   if(res.scrollTop > 400){
+//     isShow.value = true
+//   }else {
+//     isShow.value = false
+//   }
+// })
+
+onPageScroll((res)=>{
+  uni.$emit('pageScroll',res.scrollTop)
+})
+
 
 // 自定义功能函数-----获取主页数据功能函数
 async function getHomeData(){
