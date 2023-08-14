@@ -19,6 +19,12 @@
 			}
 		},
 		{
+			"path": "pages/course/detail/index",
+			"style": {
+				"navigationBarTitleText": "课程详情"
+			}
+		},
+		{
 			"path": "pages/personal/index",
 			"style": {
 				"navigationBarTitleText": "个人中心"

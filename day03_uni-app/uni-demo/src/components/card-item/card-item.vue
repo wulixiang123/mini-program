@@ -1,6 +1,7 @@
 <template>
     <view class="card_item_container">
-      <image
+      <navigator :url="`/pages/course/detail/index?courseId=${cardItem.id}`" open-type="navigate" hover-class="navigator-hover">
+        <image
         :src="type === 'course'?cardItem.cover : cardItem.avatar"
         mode="widthFix"
         class="card_img"
@@ -21,6 +22,7 @@
             <view class="card_name">{{ cardItem.name }}</view>
         </block>
       </view>
+      </navigator>
     </view>
   </template>
   <script lang='ts' setup>
@@ -35,7 +37,7 @@
 
     const props = defineProps<{
         cardItem:QueryObject,
-            type:String
+        type:String
     }>()
   </script>
   <style lang='less' scoped>
