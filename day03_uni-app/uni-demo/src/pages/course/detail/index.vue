@@ -72,7 +72,7 @@
           <!-- 学员评价 -->
           <view class="comment card">
             <view class="title">
-              <view class="title_left"> 学员评价（{{ 123 }}）</view>
+              <view class="title_left"> 学员评价（{{ comments.total }}）</view>
               <!-- /pages/course/comment/index?courseId=${courseId}&teacherId=${state.courseDetail.teacherId} -->
               <navigator url="" class="title_right">
                 查看全部<uni-icons
@@ -86,26 +86,32 @@
             <!-- 评价列表 -->
             <view class="comment_wrapper">
               <view class="comment_list">
-                <view class="comment_item">
+                <view class="comment_item" v-for="item in comments.items" :key="item.id">
                   <view class="logo">
                     <image
-                      src="https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLYaMAr2AKiccaJ3oV7NOBDWCkKJYHufeYGJyUeSavcw6cIlI5pwLyUT5ac0n6EHs4FjwfGWX06GeQ/132"
+                      :src="item.avatar"
                     />
                   </view>
                   <view class="content_wrap">
-                    <view class="name">{{ "志勇在线" }}</view>
+                    <view class="name">{{ item.nickname }}</view>
                     <veiw class="date">
-                      {{ "2023-03-05" }}
+                      {{ item.gmtCreate }}
                       <uni-rate :touchable="false" :value="5" size="12" />
                     </veiw>
-                    <view class="content">{{ "我是建工高启强" }}</view>
+                    <view class="content">{{ item.content }}</view>
                   </view>
                 </view>
               </view>
+              <navigator
+              :url="`/pages/course/comments/index?courseId=${courseId}`"
+              open-type="navigate"
+              hover-class="navigator-hover"
+              >
               <uni-load-more
                 status="more"
                 :content-text="{ contentdown: '点击查看更多评论内容' }"
               />
+            </navigator>
             </view>
           </view>
         </view>
@@ -135,10 +141,10 @@
     </view>
   </template>
   <script lang='ts' setup>
-  import { onLoad, onPageScroll } from "@dcloudio/uni-app";
+  import { onLoad, onPageScroll, onShow } from "@dcloudio/uni-app";
   import {ref} from 'vue'
   import courseService from '@/api/course'
-  import type {QueryObject} from '@/constrint/types'
+  import type {QueryObject,AnyObject} from '@/constrint/types'
   // 页面滚动事件
   onPageScroll((res) => {
     // console.log('页面滚动了');
@@ -149,6 +155,10 @@
   
   /* 定义初始化数据 */
   let courseId = ''
+  const params = {
+    page:1,
+    limit:10
+  }
   /* --------------- 定义响应式数据 --------------- */
   /* 课程详情 */
   const course = ref<QueryObject>({
@@ -160,7 +170,8 @@
   const isCollect = ref(false)
   /* 课程列表 */
   const chapterList = ref<QueryObject[]>([])
-  
+  // 评论内容
+  const comments = ref<AnyObject>({})
   
   
   /* 生命周期 */
@@ -169,6 +180,10 @@
     courseId = options!.courseId
   
     getCourseInfo()
+  })
+
+  onShow(()=>{
+    getCommentsInfo()
   })
   
   
@@ -181,6 +196,20 @@
         isBuy.value = result.data.isBuy
         isCollect.value = result.data.isCollect
         chapterList.value = result.data.chapterList
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function getCommentsInfo() {
+    try {
+      let result = await courseService.getCommentsInfo({
+        ...params,
+        courseId
+      })
+      if(result.code === 200){
+        comments.value = result.data
       }
     } catch (error) {
       console.log(error);

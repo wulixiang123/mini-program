@@ -19,6 +19,12 @@
 			}
 		},
 		{
+			"path": "pages/course/comments/index",
+			"style": {
+				"navigationBarTitleText": "评论列表"
+			}
+		},
+		{
 			"path": "pages/course/detail/index",
 			"style": {
 				"navigationBarTitleText": "课程详情"
