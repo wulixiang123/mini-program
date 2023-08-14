@@ -7,7 +7,13 @@
 			}
 		},
 		{
-			"path": "pages/course/index",
+			"path": "pages/login/index",
+			"style": {
+				"navigationBarTitleText": "登录中心"
+			}
+		},
+		{
+			"path": "pages/course/list/index",
 			"style": {
 				"navigationBarTitleText": "课程列表"
 			}
@@ -39,7 +45,7 @@
 				"selectedIconPath": "/static/images/nav/home-on.png"
 			},
 			{
-				"pagePath": "pages/course/index",
+				"pagePath": "pages/course/list/index",
 				"text": "课程",
 				"iconPath": "/static/images/nav/list-off.png",
 				"selectedIconPath": "/static/images/nav/list-on.png"
