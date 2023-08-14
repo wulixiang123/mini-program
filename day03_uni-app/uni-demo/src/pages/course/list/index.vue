@@ -1,20 +1,28 @@
 <template>
-        <view class="course_list_container">
+  <view class="course_list_container">
     <view class="course_list">
-      <view class="course_item flex" v-for="item in courseList" :key="item.id">
-        <image :src="item.cover" mode="scaleToFill" class="course_img" />
-
-        <view class="course_content flex_c">
+        <navigator
+          :url="`/pages/course/detail/index?courseId=${item.id}`"
+          open-type="navigate"
+          hover-class="navigator-hover"
+          class="course_item flex"
+          v-for="item in courseList"
+          :key="item.id"
+        >
+          <image :src="item.cover" mode="scaleToFill" class="course_img" />
+          <view class="course_content flex_c">
           <view class="course_title">{{ item.title }}</view>
           <view class="course_price_buy_count flex">
             <view class="course_price">￥ {{ item.price }}</view>
             <view class="course_buy_count">{{ item.buyCount }} 人购买</view>
           </view>
         </view>
-      </view>
+      </navigator>
     </view>
 
-    <view class="nomore" v-if="moreStatus === 'noMore'">--- 没有更多数据了 ----</view>
+    <view class="nomore" v-if="moreStatus === 'noMore'"
+      >--- 没有更多数据了 ----</view
+    >
     </view>
 </template>
 

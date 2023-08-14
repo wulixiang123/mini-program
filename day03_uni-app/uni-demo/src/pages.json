@@ -25,9 +25,21 @@
 			}
 		},
 		{
+			"path": "pages/course/video/index",
+			"style": {
+				"navigationBarTitleText": "视频页"
+			}
+		},
+		{
 			"path": "pages/course/detail/index",
 			"style": {
 				"navigationBarTitleText": "课程详情"
+			}
+		},
+		{
+			"path": "pages/order/detail/index",
+			"style": {
+				"navigationBarTitleText": "订单详情"
 			}
 		},
 		{

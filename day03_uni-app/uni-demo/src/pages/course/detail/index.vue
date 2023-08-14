@@ -124,16 +124,17 @@
         <view class="bottom_wrap">
           <view class="bottom_button">
             <view class="favo_button" >
-              <!-- <view :class="['bg', isCollect ? 'active' : '']"></view> -->
-              <view :class="['bg, active']"></view>
-              <!-- {{ isCollect ? "已收藏" : "收藏" }} -->
+              <view :class="['bg', isCollect ? 'active' : '']"></view>
+              <!-- <view :class="['bg, active']"></view> -->
+              {{ isCollect ? "已收藏" : "收藏" }}
               收藏
             </view>
           </view>
           <view class="bottom_main">
             <view class="buy_button" >
-              <!-- {{ state.course.isBuy ? "去学习" : "点击购买" }} -->
-              去学习
+              <view class="buy_button" @click="handleGoPayOrGoStudy">
+                {{ isBuy ? '去学习':'点击购买' }}
+              </view>
             </view>
           </view>
         </view>
@@ -213,7 +214,19 @@
       }
     } catch (error) {
       console.log(error);
-      
+    }
+  }
+
+  // 点击去学习或者去购买按钮的回调
+  function handleGoPayOrGoStudy(){
+    if(isBuy.value){
+      uni.navigateTo({//去学习
+        url:`/pages/course/video/index`
+      })
+    }else{
+      uni.navigateTo({//去购买
+        url:`/pages/order/detail/index?courseId=${courseId}`
+      })
     }
   }
   
