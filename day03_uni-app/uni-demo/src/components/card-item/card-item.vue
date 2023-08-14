@@ -8,7 +8,9 @@
       <view class="card_content">
         <block v-if="type === 'course'">
         <view class="card_title">{{ cardItem.title }}</view>
-        <view class="card_less_num">{{ cardItem.lessonNum }} 已学习</view>
+        <view class="card_less_num">
+          <uni-icons type="fire" size="18" color="red"></uni-icons>
+          {{ cardItem.lessonNum }} 已学习</view>
         <view class="card_price_buy_count flex">
           <view class="card_price">￥ {{ cardItem.price }}</view>
           <view class="card_buy_count">{{ cardItem.buyCount }} 人已购买</view>

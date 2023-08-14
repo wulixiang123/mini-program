@@ -6,3 +6,9 @@ export interface RequestOptions{
     data?:AnyObject,
     method?:MethodType
 }
+
+// 做分页数据参数接口
+export interface PageAndLimit{
+    page:number,
+    limit:number
+}

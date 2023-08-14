@@ -13,3 +13,6 @@ export type QueryObject = {
     id:string | number,
     [propsName:string]:any
 }
+
+// moreStatus状态类型
+export type MoreStatusType = 'more' | 'noMore' | 'loading' | 'error' 
