@@ -35,10 +35,17 @@ export const userStoreModel = defineStore('user', () => {
   }
 
 
+  // 用户退出登录,清空用户信息
+  function clearUserInfo(){
+    userInfo.avatar = ''
+    userInfo.nickname = ''
+  }
+
 
   return {
     userInfo,
     getUserInfo,
-    isLogin
+    isLogin,
+    clearUserInfo
   }
 })

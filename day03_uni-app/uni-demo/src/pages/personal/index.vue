@@ -28,7 +28,7 @@
       </view>
     </view>
     <view class="list"></view>
-    <view class="logout dark-mode info-link">退出登陆</view>
+    <view class="logout dark-mode info-link" @click="handlelogout">退出登陆</view>
   </view>
 </template>
 
@@ -63,6 +63,21 @@ function toLogin() {
   uni.navigateTo({
     url: "/pages/login/index",
   });
+}
+
+// 点击退出登录的回调
+function handlelogout(){
+    // 1.清空当前页面用户信息
+    userInfo.avatar = ''
+    userInfo.nickname = ''
+    // 2.清空本地用户token
+    uni.removeStorageSync('gulitoken')
+    // 3.清空storage中用户信息
+    userStore.clearUserInfo()
+    // 4.跳转至登录页
+    uni.navigateTo({
+        url:`/pages/login/index`
+    })
 }
 </script>
 
